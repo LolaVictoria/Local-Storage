@@ -1,0 +1,23 @@
+const storageInput = document.querySelector(".storage");
+const text =  document.querySelector(".text");
+const button =  document.querySelector(".button");
+
+const  storedInput = localStorage.getItem('textinput');
+
+if(storageInput) {
+     text.textContent = storedInput;
+}
+
+storageInput.addEventListener('input', letter => {
+     console.log(letter);
+     text.textContent = letter.target.value
+})
+
+//Saving to Local Storage
+const saveToLocalStorage = () => {
+     localStorage.setItem('textinput', text.textContent)
+}
+
+button.addEventListener('click', saveToLocalStorage);
+
+
